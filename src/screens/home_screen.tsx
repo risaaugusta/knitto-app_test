@@ -60,25 +60,17 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.searchBar}>
-        <TextInput
-          editable
-          multiline
-          numberOfLines={1}
-          maxLength={40}
-          // onChangeText={text => onChangeText(text)}
-          // value={value}
-          style={styles.textInput}
-          placeholder="Search"
-        />
-        <Button
-          // onPress={}
-          title="Search"
-          color="#4682B4"
-          accessibilityLabel="Learn more about this button"
-        />
-      </View>
-      <Text>Search for: {searchQuery}</Text>
+      <TextInput
+        editable
+        multiline
+        numberOfLines={1}
+        maxLength={40}
+        onChangeText={(text) => setSearchQuery(text)}
+        value={searchQuery}
+        style={styles.textInput}
+        placeholder="Search.."
+      />
+      <Text style={{marginBottom: 10}}>Search for: {searchQuery}</Text>
       {isLoading ? (
         <ActivityIndicator size="large" color="#0000ff" />
       ) : (
@@ -111,24 +103,19 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignContent: "space-around",
   },
-  searchBar: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10,
-  },
   image: {
     width: "50%",
     height: 100,
     marginBottom: 8,
   },
   textInput: {
-    width: 280,
+    // width: 280,
     borderColor: "grey",
     backgroundColor: "white",
     borderWidth: 0.5,
     borderRadius: 8,
     paddingHorizontal: 8,
-    marginRight: 10,
+    marginBottom: 10,
   },
   user: {
     marginLeft: 10,
@@ -141,10 +128,10 @@ const styles = StyleSheet.create({
     maxWidth: 130,
   },
   bookmark: {
-    position: 'absolute',  
-    bottom: 10,  
-    right: 10,  
-    alignItems: 'baseline',
+    position: "absolute",
+    bottom: 10,
+    right: 10,
+    alignItems: "baseline",
   },
 });
 
